@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Three.js</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<script src="js/lib/three.min.js"></script>
+	<script src="js/lib/OrbitControls.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body>
+	<div style="height: 50; width: 50;">
+		<select id="figures" name="figures">
+		  <option value="1">Box</option>
+		  <option value="2">Sphere</option>
+		  <option value="3">Cone</option>
+		</select>
+		<input type="text" id="size" name="size">
+		<input type="button" name="create" onclick="createObj()">
+	</div>
+	<canvas id="canvas"></canvas>
+	<div id="list" style="height: 50; width: 50;">
+
+	</div>
+</body>
+</html>
