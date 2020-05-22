@@ -33,9 +33,14 @@ function render() {
 }
 
 function createObj() {
-	var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
 	
 	var size = document.getElementById('size').value;
+	if(size < 1 || size > 10)
+	{
+		alert("Enter value in diapason 1...10.");
+		return;
+	}
+	var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
 	switch(document.getElementById('figures').value)
 	{
 		case '1':
@@ -56,7 +61,6 @@ function createObj() {
 	mesh.position.z = Math.random() * 300;
 	scene.add(mesh);
 	renderer.render( scene, camera );
-	console.log(mesh, mesh.id);
 	addToList(mesh.uuid, mesh.id);
 }
 
@@ -71,11 +75,12 @@ function remove(id){
 	var brName = "br_"+id;
 	var uuid = document.getElementById(name).textContent;
 	var	object = scene.getObjectByProperty( 'uuid', uuid );
-	//console.log(object);
+
 	object.geometry.dispose();
 	object.material.dispose();
 	scene.remove( object );
 	renderer.render( scene, camera );
+
 	var element = document.getElementById(name);
 	var element2 = document.getElementById(nameRem);
 	var element3 = document.getElementById(brName);
